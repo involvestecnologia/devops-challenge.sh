@@ -8,7 +8,7 @@ Você deverá realizar um fork deste repositório e utilizando suas habilidades 
 
 - Adicionar um botão para limpar a tela.
 
-- Adicionar um botão, que quando pressionado, subistitui uma citação que tenha `Windows` por `Linux is better`.
+- Adicionar um botão, que quando pressionado, substitui uma citação que tenha `Windows` por `Linux is better`.
 
 - A porta em que a aplicação roda deverá ser configurável de forma fácil e sem estar hardcoded.
 
