@@ -1,19 +1,8 @@
-/* globals fetch */
-var update = document.getElementById('update')
-var del = document.getElementById('delete')
+function mudarTitle(id){
+document.getElementById('conteudo').getElementsByTagName("h3")[0].innerHTML = "LINUX is better!!";
+}
 
-update.addEventListener('click', function () {
-  fetch('quotes', {
-    method: 'put',
-    headers: {'Content-Type': 'application/json'},
-  })
-  .then(response => {
-    if (response.ok) return response.json()
-  })
-  .then(data => {
-    console.log(data)
-  })
-})
+var del = document.getElementById('delete')
 
 del.addEventListener('click', function () {
   fetch('quotes', {

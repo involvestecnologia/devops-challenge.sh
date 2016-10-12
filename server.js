@@ -33,3 +33,11 @@ app.post('/quotes', (req, res) => {
   })
 })
 
+app.delete('/quotes', (req, res) => {
+  db.collection('quotes').remove((err, result) => {
+    if (err) return console.log(err)
+    console.log('clear database')
+    res.redirect('/')
+  })
+})
+
