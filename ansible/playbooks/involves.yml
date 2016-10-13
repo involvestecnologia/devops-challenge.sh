@@ -12,12 +12,6 @@
   - name: configura nginx proxy reverso
     template: src=/tmp/guikolt-involves-devops-challenge/ansible/templates/nginx.conf.j2 dest=/tmp/guikolt-involves-devops-challenge/nginx/conf/nginx.conf
 
-  - name: para e remove os containers caso ja existam, pois estaremos reinstalando
-    shell: /usr/bin/docker stop nginx nodejs && /usr/bin/docker rm nginx nodejs
-
-  - name: remove as imagens do docker pois serao feitas novamente caso existam
-    shell: /usr/bin/docker rmi guikolt-nginx guikolt-involves-devops-challenge
-  
   - name: monta o docker container com a aplicacao nodejs
     docker_image: path=/tmp/guikolt-involves-devops-challenge name=guikolt-involves-devops-challenge
 
