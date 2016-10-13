@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>MY APP</title>
+  <title>DevOps Challenge</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>May the ops be with you</h1>
+<h1>May the ops be with you</h1>
 
   <ul class="quotes">
   <% for(var i=0; i<quotes.length; i++) {%>
@@ -17,14 +17,24 @@
   <% } %>
   </ul>
 
-  <h2>Add a quote</h2>
+  <h3>Adicionar quote</h3>
 
   <form action="/quotes" method="POST">
     <input type="text" placeholder="name" name="name">
     <input type="text" placeholder="quote" name="quote">
-    <button type="submit">Submit</button>
+    <button type="submit">Adicionar</button>
   </form>
 
+  <div>
+    <h3>Substituir citacao de Windows por Linux is better</h3>
+    <button id="update" type="button">Substituir</button>
+  </div>
+
+  <div>
+    <h3>Limpar todas as quotes</h3>
+    <button id="delete" type="button">Limpar</button>
+  </div>
+  
   <script src="main.js"></script>
 
 </body>
