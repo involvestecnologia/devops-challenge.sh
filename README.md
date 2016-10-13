@@ -16,8 +16,9 @@
 
 ### Tecnologias utilizadas:
 
-  - Docker
-  - Ansible
+  - Debian 8 (jessie)
+  - Docker 1.12.1
+  - Ansible 1.7.2
   - Github
   - Nginx
   
@@ -52,6 +53,13 @@ ansible-playbook -e mongodb_host="involves:challenge@ds027896.mlab.com:27896/gui
 ```
 
 Assim, poderemos acessar a aplicação nodejs em http://127.0.0.1:3000 ou através do nginx proxy reverso em http://127.0.0.1:8080.
+
+### A melhorar
+
+Utilizar uma versão mais recente do Ansible.
+A versão utilizada (1.7.2) possui diversas funcionalidades *quebradas* nos módulos do docker/docker_image.
+O ideal seria utilizar o ansible 2.2 em produção.
+
 
 # Fim!
 
