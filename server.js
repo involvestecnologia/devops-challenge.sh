@@ -4,15 +4,11 @@ const bodyParser = require('body-parser')
 const MongoClient = require('mongodb').MongoClient
 
 var db
-app.set('port', process.env.PORT || 3000);
-app.set('urlMongoDB', process.env.URL_MONGODB || 'mongodb://127.0.0.1:32769/devops-test');
 
-MongoClient.connect(app.get('urlMongoDB'), function(err, database) {
+MongoClient.connect('mongodb://127.0.0.1:27017/devops-test', function(err, database) {
   if (err) return console.log(err)
   db = database
-  app.listen(app.get('port'), function(){
-    console.log('listening on ' + app.get('port'))
-    console.log('mongodb on ' + app.get('urlMongoDB'))
+  app.listen(3000, function(){
   })
 })
 
