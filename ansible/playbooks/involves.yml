@@ -1,0 +1,25 @@
+- name: involves devops challenge
+  hosts: all
+
+  tasks:
+
+  - name: clona o repositorio do github
+    git: repo=https://github.com/guikolt/devops-challenge.sh dest=/tmp/guikolt-involves-devops-challenge
+
+  - name: configura porta da aplicacao e do mongodb
+    template: src=/tmp/guikolt-involves-devops-challenge/ansible/templates/server.js.j2 dest=/tmp/guikolt-involves-devops-challenge/server.js
+
+  - name: configura nginx proxy reverso
+    template: src=/tmp/guikolt-involves-devops-challenge/ansible/templates/nginx.conf.j2 dest=/tmp/guikolt-involves-devops-challenge/nginx/conf/nginx.conf
+
+  - name: monta o docker container com a aplicacao nodejs
+    docker_image: path=/tmp/guikolt-involves-devops-challenge name=guikolt-involves-devops-challenge
+
+  - name: roda o docker container com a aplicacao
+    shell: /usr/bin/docker run -p {{ docker_listen }}:{{ app_listen }} --name nodejs -d guikolt-involves-devops-challenge
+
+  - name: monta o docker container com o nginx proxy reverso
+    docker_image: path=/tmp/guikolt-involves-devops-challenge/nginx name=guikolt-nginx
+
+  - name: roda o docker container com o nginx proxy reverso
+    shell: /usr/bin/docker run -p {{ nginx_port }}:{{ nginx_port }} --link nodejs:nodejs --name nginx -d guikolt-nginx

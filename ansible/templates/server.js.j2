@@ -5,11 +5,11 @@ const MongoClient = require('mongodb').MongoClient
 
 var db
 
-MongoClient.connect('mongodb://involves:challenge@ds027896.mlab.com:27896/guikolt-involves', function(err, database) {
+MongoClient.connect('mongodb://{{ mongodb_host }}', function(err, database) {
   if (err) return console.log(err)
   db = database
-  app.listen(3000, function(){
-    console.log('listening on 3000')
+  app.listen({{ app_listen }}, function(){
+    console.log('listening on {{ app_listen }}')
   })
 })
 
