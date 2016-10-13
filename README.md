@@ -47,8 +47,8 @@ Exemplo:
 ```sh
 wget https://raw.githubusercontent.com/guikolt/devops-challenge.sh/master/ansible/playbooks/involves.yml -O /tmp/involves.yml
 ```
-```
-$# ansible-playbook -e mongodb_host="involves:challenge@ds027896.mlab.com:27896/guikolt-involves" -e app_listen="3000" -e docker_listen="3000" -e nginx_port="8080" /tmp/involves.yml -u root -k
+```sh
+ansible-playbook -e mongodb_host="involves:challenge@ds027896.mlab.com:27896/guikolt-involves" -e app_listen="3000" -e docker_listen="3000" -e nginx_port="8080" /tmp/involves.yml -u root -k
 ```
 
 Assim, poderemos acessar a aplicação nodejs em http://127.0.0.1:3000 ou através do nginx proxy reverso em http://127.0.0.1:8080.
