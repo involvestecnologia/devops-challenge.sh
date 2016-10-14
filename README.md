@@ -1,59 +1,36 @@
-# Involves Devops challenge
+# Exemplo Devops
 
- Este repositório tem como objetivo disponibilizar um simples app em NodeJs que interage com uma instancia do mongoDB.
+ Este repositório tem como objetivo disponibilizar um simples app em NodeJs que interage com uma instância do mongoDB. Além disso usaremos docker, Ansible e Jenkins.
 
-### O Teste
+### Requisitos
 
-Você deverá realizar um fork deste repositório e utilizando suas habilidades e seus conhecimentos, deverá modificar a aplicação de acordo com os requisitos abaixo:
-
-- Adicionar um botão para limpar a tela.
-
-- Adicionar um botão, que quando pressionado, substitui uma citação que tenha `Windows` por `Linux is better`.
-
-- A porta em que a aplicação roda deverá ser configurável de forma fácil e sem estar hardcoded.
-
-- A url do MongoDB deverá ser configurável de forma fácil e sem estar hardcoded.
-
-Além disso queremos que você descreva  e entregue em forma de pull request, como que você replicaria este app até a produção, incluindo:
-
-- Automação dos passos até lá.
-
-- Monitoramento.
-
-- Integração Continua.
-
-- Entrega Continua.
-
-### Requisitos Desejáveis
-
-Você pode usar as ferramentas que quiser, entregando e nos explicando o por quê de cada passo é o que conta, entretanto os items abaixo são um plus.
-
-- Jenkins
-
-- Github
-
-- Ansible
-
-- Docker
-
-- Nginx como proxy reverso.
-
-### Requisitos indispensáveis
-
- - README com a explicação do que você planejou.
- - A sua infra deverá ser capaz de ser reproduzida localmente, pois se você passar no teste executaremos seu teste na entrevista.
+- Utilizar docker 1.12
+- Esse projeto espera que você esteja utilizando o Docker na sua própria máquina.
+- Você deve ter sshd rodando na sua máquina e devida permissão para o usuário com permissão no docker.
+- Conexão com a internet para efetuar download dos containers e github.
 
 
-### O que será avaliado
- - Flexibilidade
- - Performance
- - Maneira que você está entregando este teste
- - Infra as code
- - Complexidade
+### Rodando container Jenkins e Ansible.
 
-## Usage
-1. Clone repo
-2. Run `npm install`
-3. Run `npm run dev`
-4. Navigate to `localhost:3000`
-4. Good luck ;)
+- docker run -p 8080:8080 -v /tmp:/tmp -it robertvilvert/godfather:1.0 /bin/bash 
+##### No primeiro acesso ao container:
+- Será solicitado ip da sua máquina.
+- Será solicitado um usuário da sua máquina. (Garanta que o usuário informado pertença ao grupo docker).
+- Será solicitado a senha do usuário cadastrado na fase anterior.
+
+### Acessando o Jenkins
+
+Em seu navegador de preferência, acesse: http://127.0.0.1:8080
+
+### Jobs do Jenkins
+No Jenkins temos três Jobs:
+- 1-mongodb
+- 2-application
+- 3-nginx
+### Usabilidade
+ - Execute os Jobs em ordem de 1 para 3, pois a aplicação depende do MongoDB, assim como Upstream do NginX depende de acesso ao docker service application
+ - Os Jobs são parametrizados e permitem alterar portas de acesso e porta do MongoDB;
+
+Sinta-se livre para alterar os jobs de acordo com sua necessidade! 
+ 
+
