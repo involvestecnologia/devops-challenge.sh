@@ -1,59 +1,23 @@
 # Involves Devops challenge
 
- Este repositório tem como objetivo disponibilizar um simples app em NodeJs que interage com uma instancia do mongoDB.
+ Este PR tem como objetivo disponibilizar um simples app em NodeJs que interage com uma instancia do mongoDB.
 
-### O Teste
+### A aplicação
 
-Você deverá realizar um fork deste repositório e utilizando suas habilidades e seus conhecimentos, deverá modificar a aplicação de acordo com os requisitos abaixo:
+- Botão Delete que limpa todos os dados da base de dados
 
-- Adicionar um botão para limpar a tela.
+- Botão Update que faz o replace dos registros armazenados no mongodb, substituindo Windows por Linux is better
 
-- Adicionar um botão, que quando pressionado, substitui uma citação que tenha `Windows` por `Linux is better`.
+- Flexibilização da da porta e url não deu tempo de implementar mas estava pensando em fazer por parametro ao rodar npm -porta=1234 -url-mongo="mongodb..." run dev
 
-- A porta em que a aplicação roda deverá ser configurável de forma fácil e sem estar hardcoded.
+### O ambiente
 
-- A url do MongoDB deverá ser configurável de forma fácil e sem estar hardcoded.
+- Arquivo Dockerfiles disponivel em https://github.com/tirula/dockerfile-devops.git com maiores info no README.md do repositorio.
 
-Além disso queremos que você descreva  e entregue em forma de pull request, como que você replicaria este app até a produção, incluindo:
+- Tambem por falta de tempo e alguns empecilhos no caminho nao consegui terminar 100% a montagem do ambiente. Docker configurado com nodejs, mongodb, git e npm.
 
-- Automação dos passos até lá.
+- Tive alguns problemas em construir o ambiente com o docker-engine entao resolvi deixar de fora o jenkins.
 
-- Monitoramento.
+Desfaio bastante interessante mas faltou um pouco de organizacão da minha parte e tempo para conclui-lo por inteiro.
 
-- Integração Continua.
-
-- Entrega Continua.
-
-### Requisitos Desejáveis
-
-Você pode usar as ferramentas que quiser, entregando e nos explicando o por quê de cada passo é o que conta, entretanto os items abaixo são um plus.
-
-- Jenkins
-
-- Github
-
-- Ansible
-
-- Docker
-
-- Nginx como proxy reverso.
-
-### Requisitos indispensáveis
-
- - README com a explicação do que você planejou.
- - A sua infra deverá ser capaz de ser reproduzida localmente, pois se você passar no teste executaremos seu teste na entrevista.
-
-
-### O que será avaliado
- - Flexibilidade
- - Performance
- - Maneira que você está entregando este teste
- - Infra as code
- - Complexidade
-
-## Usage
-1. Clone repo
-2. Run `npm install`
-3. Run `npm run dev`
-4. Navigate to `localhost:3000`
-4. Good luck ;)
+Muito obrigado pela oportunidade.
