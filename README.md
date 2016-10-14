@@ -5,6 +5,7 @@
 ### Requisitos
 
 - Utilizar docker 1.12
+- Iniciar docker swarm (docker swarm init).
 - Esse projeto espera que você esteja utilizando o Docker na sua própria máquina.
 - Você deve ter ssh-server rodando na sua máquina e devida permissão para o usuário no grupo docker.
 - Conexão com a internet para efetuar download dos containers e github.
