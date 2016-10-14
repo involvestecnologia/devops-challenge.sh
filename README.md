@@ -13,6 +13,7 @@
 ### Rodando container Jenkins e Ansible.
 
 - docker run -p 8080:8080 -v /tmp:/tmp -it robertvilvert/godfather:1.0 /bin/bash 
+
 ##### No primeiro acesso ao container:
 - Será solicitado ip da sua máquina.
 - Será solicitado um usuário da sua máquina. (Garanta que o usuário informado pertença ao grupo docker).
