@@ -5,13 +5,12 @@ const MongoClient = require('mongodb').MongoClient
 
 var db
 
-app.listen(3000, function(){console.log("app no ar")})
-/*MongoClient.connect('mongodb://127.0.0.1:27017/devops-test', function(err, database) {
+MongoClient.connect('mongodb://127.0.0.1:27017/devops-test', function(err, database) {
   if (err) return console.log(err)
   db = database
   app.listen(3000, function(){
   })
-})*/
+})
 
 app.set('view engine', 'ejs')
 app.use(bodyParser.urlencoded({extended: true}))
