@@ -22,12 +22,17 @@
 ### Acessando o Jenkins
 
 Em seu navegador de preferência, acesse: http://127.0.0.1:8080
+- Usuário: desafio
+- Senha: desafio
+
 
 ### Jobs do Jenkins
 No Jenkins temos três Jobs:
 - 1-mongodb
 - 2-application
 - 3-nginx
+
+
 ### Usabilidade
  - Execute os Jobs em ordem de 1 para 3, pois a aplicação depende do MongoDB, assim como Upstream do NginX depende de acesso ao docker service application
  - Os Jobs são parametrizados e permitem alterar portas de acesso e porta do MongoDB;
