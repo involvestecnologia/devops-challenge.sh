@@ -37,4 +37,4 @@ Start application:
 5. <code>access http://devops-challengesh.dev.azk.io:3000 to application and http://mongodb.dev.azk.io:28017/ to mongodb.</code>
 
 
-[![Run project](https://s3-sa-east-1.amazonaws.com/assets.azk.io/run-project.png)](http://run.azk.io/start/?repo=username/repo&ref=azkfile)
+[![Run project](https://s3-sa-east-1.amazonaws.com/assets.azk.io/run-project.png)](http://run.azk.io/start/?repo=renanberto/devops-challenge.sh&ref=azkfile)
