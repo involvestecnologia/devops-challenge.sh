@@ -1,16 +1,17 @@
 /* globals fetch */
-var update = document.getElementById('update')
+var update = document.getElementById('up')
 var del = document.getElementById('delete')
 
 update.addEventListener('click', function () {
   fetch('quotes', {
     method: 'put',
-    headers: {'Content-Type': 'application/json'},
-  })
-  .then(response => {
+    headers: {
+      'Content-Type': 'application/json'
+    },
+  }).then(function (response) {
     if (response.ok) return response.json()
-  })
-  .then(data => {
+  }).then(function (data) {
+    window.location.reload()
     console.log(data)
   })
 })

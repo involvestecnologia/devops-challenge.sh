@@ -1,0 +1,10 @@
+server {
+	listen 8080 default_server;
+	listen [::]:8080 default_server;
+
+	location / {
+		try_files $uri $uri/ =404;
+    proxy_pass http://devops-challengesh.dev.azk.io:3000;
+	}
+}
+
