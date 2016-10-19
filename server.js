@@ -2,14 +2,16 @@ const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
 const MongoClient = require('mongodb').MongoClient
+const MONGODB_URI = process.env.MONGODB_URI
+const PORT = process.env.PORT || 3000
 
 var db
 
-MongoClient.connect('mongodb://127.0.0.1:32769/devops-test', (err, database) => {
+MongoClient.connect(MONGODB_URI, (err, database) => {
   if (err) return console.log(err)
   db = database
-  app.listen(3000, () => {
-    console.log('listening on 3000')
+  app.listen(PORT, () => {
+    console.log('listening on ' + PORT)
   })
 })
 
@@ -33,3 +35,22 @@ app.post('/quotes', (req, res) => {
   })
 })
 
+app.delete('/quotes', (req, res) => {
+  db.collection('quotes').remove({}, function(err, result){
+    if (err) return console.log(err)
+    console.log('deleted')
+    res.redirect('/')
+  })
+})
+
+app.put('/quotes', (req, res) => {
+  db.collection('quotes').findAndModify(
+    {quote: 'Windows'},
+    [['name', 'asc']],
+    {$set: {quote: 'Linux is better'}},
+    function(err, result){
+      if (err) return console.log(err)
+      console.log('Linux is better OK')
+      res.redirect('/')
+  })
+})
