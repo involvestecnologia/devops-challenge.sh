@@ -15,3 +15,5 @@ webserver:
     - "3000:3000"
   links:
     - mongodb
+  environment:
+    WEB_APP_PORT: 3000

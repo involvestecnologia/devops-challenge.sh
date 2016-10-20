@@ -5,10 +5,19 @@ const MongoClient = require('mongodb').MongoClient
 
 var db
 
-MongoClient.connect('mongodb://mongodb:27017/devops-test', (err, database) => {
+var MONGO_DB
+var DOCKER_DB = process.env.MONGODB_PORT
+
+if ( DOCKER_DB ) {
+  MONGO_DB = DOCKER_DB.replace( 'tcp', 'mongodb' ) + '/devops-test'
+} else {
+  MONGO_DB = process.env.MONGODB
+}
+
+MongoClient.connect(MONGO_DB, (err, database) => {
   if (err) return console.log(err)
   db = database
-  app.listen(3000, () => {
+  app.listen(process.env.WEB_APP_PORT || 3000, () => {
     console.log('listening on 3000')
   })
 })
