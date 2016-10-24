@@ -1,59 +1,50 @@
 # Involves Devops challenge
 
- Este repositório tem como objetivo disponibilizar um simples app em NodeJs que interage com uma instancia do mongoDB.
+# Considerações Iniciais
 
-### O Teste
+Bom, Primeiramente gostaria de agradecer a oportunidade de fazer este desafio e também a oportunidade de mostrar meu trabalho.  
 
-Você deverá realizar um fork deste repositório e utilizando suas habilidades e seus conhecimentos, deverá modificar a aplicação de acordo com os requisitos abaixo:
+# Desafio
 
-- Adicionar um botão para limpar a tela.
+### Requisitos 
 
-- Adicionar um botão, que quando pressionado, substitui uma citação que tenha `Windows` por `Linux is better`.
+- Docker 
+- docker-compose
 
-- A porta em que a aplicação roda deverá ser configurável de forma fácil e sem estar hardcoded.
+Foram feitas as cinco tarefas que estavam previstas neste desafio. 
 
-- A url do MongoDB deverá ser configurável de forma fácil e sem estar hardcoded.
+O projeto está atualmente dividido em três diretórios sendo eles: webserver, mongo_seed e o cadvisor.
 
-Além disso queremos que você descreva  e entregue em forma de pull request, como que você replicaria este app até a produção, incluindo:
+- webserver contém o código fonte do webapp utilizando nodejs com um Dockerfile para iniciar este webapp.
+- mongo_seed contém informações de configuração do banco de dados mongodb.
+- cadvisor já este diretório contém um docker-compose para subir o cadvisor para monitoramento dos contêineres.
 
-- Automação dos passos até lá.
+No diretório raiz do projeto foi criado um docker-compose que inicia o servidor web e um mongodb.
 
-- Monitoramento.
+## Build and Running projeto:
 
-- Integração Continua.
+`docker-compose up --build`
 
-- Entrega Continua.
+Pronto nosso projeto está rodando na porta `127.0.0.1:3000` 
 
-### Requisitos Desejáveis
+### Monitoramento Cadvisor
 
-Você pode usar as ferramentas que quiser, entregando e nos explicando o por quê de cada passo é o que conta, entretanto os items abaixo são um plus.
+Foi criado este diretório para rodar o Cadvisor que sua função é monitorar os contêineres.
 
-- Jenkins
+`cd cadvisor` 
 
-- Github
+`docker-compose up --build`
 
-- Ansible
+Pronto nosso monitoramento de contêineres já está rodando: `127.0.0.1:8080`
 
-- Docker
+## Planejamento para colocar em produção 
 
-- Nginx como proxy reverso.
+Primeiramente iria desenvolver umas playbooks utilizando ansible para criar e provisionar um parque de máquinas.
 
-### Requisitos indispensáveis
+- Criar três máquinas e provisionar para criar um cluster de docker com o `Docker Swarm` 
+- Criar uma máquina que seria instalado e configurado o Jenkins para fazer o build e deploy da aplicação no cluster de docker.
+- Para o monitoramento dos contêineres será utilizados as ferramentas  Elasticsearch and cAdvisor.
 
- - README com a explicação do que você planejou.
- - A sua infra deverá ser capaz de ser reproduzida localmente, pois se você passar no teste executaremos seu teste na entrevista.
+Muito obrigado 
 
-
-### O que será avaliado
- - Flexibilidade
- - Performance
- - Maneira que você está entregando este teste
- - Infra as code
- - Complexidade
-
-## Usage
-1. Clone repo
-2. Run `npm install`
-3. Run `npm run dev`
-4. Navigate to `localhost:3000`
-4. Good luck ;)
+Leandro Amaral

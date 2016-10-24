@@ -8,10 +8,13 @@ update.addEventListener('click', function () {
     headers: {'Content-Type': 'application/json'},
   })
   .then(response => {
-    if (response.ok) return response.json()
+    if (response.ok) {
+      return response.json()
+    }
   })
-  .then(data => {
-    console.log(data)
+  .then((response) => { 
+    console.log(response)
+    window.location.reload()
   })
 })
 
@@ -21,7 +24,12 @@ del.addEventListener('click', function () {
     headers: {
       'Content-Type': 'application/json'
     },
-  }).then(function (response) {
+  }).then(response => {
+    if (response.ok){
+      return response.json()
+    }
+  })
+  .then((response) => {
     window.location.reload()
   })
 })
