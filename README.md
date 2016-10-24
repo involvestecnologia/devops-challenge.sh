@@ -23,25 +23,25 @@ No diretório raiz do projeto foi criado um docker-compose que inicia o servidor
 
 ## Build and Running projeto:
 
-´docker-compose up --build´
+`docker-compose up --build`
 
-Pronto nosso projeto está rodando na porta ´127.0.0.1:3000´ 
+Pronto nosso projeto está rodando na porta `127.0.0.1:3000` 
 
 ### Monitoramento Cadvisor
 
 Foi criado este diretório para rodar o Cadvisor que sua função é monitorar os contêineres.
 
-´cd cadvisor´ 
+`cd cadvisor` 
 
-´docker-compose up --build´
+`docker-compose up --build`
 
-Pronto nosso monitoramento de contêineres já está rodando: ´127.0.0.1:8080´
+Pronto nosso monitoramento de contêineres já está rodando: `127.0.0.1:8080`
 
 ## Planejamento para colocar em produção 
 
 Primeiramente iria desenvolver umas playbooks utilizando ansible para criar e provisionar um parque de máquinas.
 
-- Criar três máquinas e provisionar para criar um cluster de docker com o ´Docker Swarm´ 
+- Criar três máquinas e provisionar para criar um cluster de docker com o `Docker Swarm` 
 - Criar uma máquina que seria instalado e configurado o Jenkins para fazer o build e deploy da aplicação no cluster de docker.
 - Para o monitoramento dos contêineres será utilizados as ferramentas  Elasticsearch and cAdvisor.
 
